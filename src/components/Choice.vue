@@ -1,24 +1,39 @@
 <template>
-    <span class="choice">
-        <img :src = imgPath>
-    </span>
+  <span class="choice" v-if="id < numOfQuestions">
+    <router-link :to="{ name: 'Question', params: { id: +id + 1 } }">
+      <img :src="imgPath" />
+    </router-link>
+  </span>
+  <span class="choice" v-else>
+    <router-link to="/result">
+      <img :src="imgPath" />
+    </router-link>
+  </span>
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
-    props: {
-        choice: Array[String]
+  props: {
+    choice: Array[String],
+    id: String,
+  },
+  computed: {
+    ...mapState({
+      numOfQuestions: "numOfQuestions",
+    }),
+    imgPath() {
+      return (
+        "https://quiz-pictures.s3-ap-northeast-1.amazonaws.com/" +
+        this.choice[0]
+      );
     },
-    computed:{
-        imgPath(){
-            return "https://quiz-pictures.s3-ap-northeast-1.amazonaws.com/" + this.choice[0]
-        }
-    }
-}
+  },
+};
 </script>
 
 <style scoped>
-    span.choice img {
-        width: 200px;
-    }
+span.choice img {
+  width: 200px;
+}
 </style>
