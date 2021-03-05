@@ -1,13 +1,16 @@
 <template>
     <div>
+    <p>
         {{question}}
-    <p v-for="choice in choices" :key="choice.id">
-        {{choice[0]}}
-        <!--<img :src = imgPath(choice[0])>-->
+    </p>
+    <p> 
+    <span v-for="choice in choices" :key="choice.id">
+        <Choice :choice="choice"/>
+    </span>
     </p>
     <p v-if="this.$route.params.id < numOfQuestions">
         <router-link :to="{name: 'Question', params: {id: +this.$route.params.id+1}}">
-            <img src = "../assets/001_01.png">
+            次へ
         </router-link>
     </p>
     <p v-else>
@@ -18,7 +21,11 @@
 
 <script>
 import {mapState} from 'vuex'
+import Choice from '../components/Choice'
 export default {
+  components: {
+      Choice
+  },
   data () {
     return {
         question: "",
@@ -46,9 +53,6 @@ export default {
             this.question = object[0]
             this.choices = object[1]
           }
-      },
-      imgPath(str){
-          return require(str)
       }
   }
 }
