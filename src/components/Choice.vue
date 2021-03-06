@@ -16,6 +16,7 @@ import { mapState } from "vuex";
 export default {
   props: {
     choice: Array[String],
+    keyword: String,
     id: String,
   },
   computed: {
@@ -32,7 +33,7 @@ export default {
   },
   methods:{
       registerAnswer(){
-          this.$store.commit('addAnswer',[this.id, this.choice])
+          this.$store.commit('addAnswer',[this.id, this.choice, this.keyword])
       },
       resetAnswer(){
           this.$store.commit('resetAnswer')

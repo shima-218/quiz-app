@@ -2,6 +2,7 @@
   <div>
     <span v-for="(image, index) in images" :key="image.id">
       <span class="choice">
+        {{keywords[index]}}
         <img :src="imgPath(image)" />
         <span v-if="showMark">
           <span v-if="answers[index] == 1">
@@ -26,6 +27,7 @@ export default {
     ...mapState({
       images: "selectedImages",
       answers: "answers",
+      keywords: "keywords"
     }),
   },
   methods: {

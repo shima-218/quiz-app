@@ -6,7 +6,7 @@
     </p>
     <p>
       <span v-for="choice in choices" :key="choice.id">
-        <Choice :choice="choice" :id="id" />
+        <Choice :choice="choice" :keyword="keyword" :id="id" />
       </span>
     </p>
   </div>
@@ -23,6 +23,7 @@ export default {
   data() {
     return {
       question: "",
+      keyword: "",
       choices: "",
     };
   },
@@ -42,7 +43,8 @@ export default {
       var object = this.$store.state.questions[this.$route.params.id - 1];
       if (object != null) {
         this.question = object[0];
-        this.choices = object[1];
+        this.keyword = object[1];
+        this.choices = object[2];
       }
     },
   },
