@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Footer :showMark="false" />
     <p>
       {{ question }}
     </p>
@@ -8,7 +9,6 @@
         <Choice :choice="choice" :id="id" />
       </span>
     </p>
-    <Footer/>
   </div>
 </template>
 
@@ -53,3 +53,7 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+
+</style>
