@@ -5,7 +5,7 @@
     </router-link>
   </span>
   <span class="choice" v-else>
-    <router-link to="/result">
+    <router-link to="/confirm">
       <span @click="registerAnswer()"><img :src="imgPath" /></span>
     </router-link>
   </span>
