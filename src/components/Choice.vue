@@ -9,7 +9,6 @@
       <span @click="registerAnswer()"><img :src="imgPath" /></span>
     </router-link>
   </span>
-  <span>{{answers}}</span>
 </template>
 
 <script>
@@ -33,7 +32,7 @@ export default {
   },
   methods:{
       registerAnswer(){
-          this.$store.commit('addAnswer',[this.id, this.choice[1]])
+          this.$store.commit('addAnswer',[this.id, this.choice])
       },
       resetAnswer(){
           this.$store.commit('resetAnswer')

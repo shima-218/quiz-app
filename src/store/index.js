@@ -27,15 +27,19 @@ export default createStore({
             ]]
         ],
         numOfQuestions: 4,
+        selectedImages: [],
         answers: [],
     },
     mutations: {
         addAnswer(state, payload) {
             var id = payload[0]
-            var selected = payload[1]
-            state.answers[id - 1] = selected
+            var selectedImage = payload[1][0]
+            var selectedAnswer = payload[1][1]
+            state.selectedImages[id - 1] = selectedImage
+            state.answers[id - 1] = selectedAnswer
         },
         resetAnswer(state) {
+            state.selectedImages = []
             state.answers = Array(state.numOfQuestions).fill("")
         }
     },

@@ -8,14 +8,17 @@
         <Choice :choice="choice" :id="id" />
       </span>
     </p>
+    <Footer/>
   </div>
 </template>
 
 <script>
 import Choice from "../components/Choice";
+import Footer from "../components/Footer"
 export default {
   components: {
     Choice,
+    Footer,
   },
   data() {
     return {

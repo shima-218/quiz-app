@@ -1,15 +1,19 @@
 <template>
   <div>
-    {{ answers }}<br />
     判定：{{ this.rank }}<br />
     {{ this.messages[this.rank]}}<br/>
+    <Footer/>
     <router-link to="/">もう１回あそぶ</router-link>
   </div>
 </template>
 
 <script>
 import { mapState } from "vuex";
+import Footer from "../components/Footer"
 export default {
+  components:{
+    Footer
+  },
   data(){
       return{
           messages: {S:"すごい！あなたは野菜の才能があるかも？",
