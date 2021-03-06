@@ -14,7 +14,7 @@ export default {
   components: {},
   methods: {
     resetAnswer() {
-      this.$store.commit("resetAnswer");
+      this.$store.commit("startGame");
     },
   },
 };

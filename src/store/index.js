@@ -29,6 +29,7 @@ export default createStore({
         numOfQuestions: 4,
         selectedImages: [],
         answers: [],
+        illegalTransition: true
     },
     mutations: {
         addAnswer(state, payload) {
@@ -38,9 +39,10 @@ export default createStore({
             state.selectedImages[id - 1] = selectedImage
             state.answers[id - 1] = selectedAnswer
         },
-        resetAnswer(state) {
+        startGame(state) {
             state.selectedImages = []
-            state.answers = Array(state.numOfQuestions).fill("")
+            state.answers = []
+            state.illegalTransition = false
         }
     },
     actions: {},
