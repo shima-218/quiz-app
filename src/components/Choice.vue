@@ -1,14 +1,15 @@
 <template>
   <span class="choice" v-if="id < numOfQuestions">
     <router-link :to="{ name: 'Question', params: { id: +id + 1 } }">
-      <img :src="imgPath" />
+      <span @click="registerAnswer()"><img :src="imgPath" /></span>
     </router-link>
   </span>
   <span class="choice" v-else>
     <router-link to="/result">
-      <img :src="imgPath" />
+      <span @click="registerAnswer()"><img :src="imgPath" /></span>
     </router-link>
   </span>
+  <span>{{answers}}</span>
 </template>
 
 <script>
@@ -21,14 +22,23 @@ export default {
   computed: {
     ...mapState({
       numOfQuestions: "numOfQuestions",
+      answers: "answers",
     }),
     imgPath() {
       return (
         "https://quiz-pictures.s3-ap-northeast-1.amazonaws.com/" +
         this.choice[0]
       );
-    },
+    }
   },
+  methods:{
+      registerAnswer(){
+          this.$store.commit('addAnswer',[this.id, this.choice[1]])
+      },
+      resetAnswer(){
+          this.$store.commit('resetAnswer')
+      }
+  }
 };
 </script>
 

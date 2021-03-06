@@ -1,11 +1,47 @@
 <template>
-    <div>正解
+  <div>
+    {{ answers }}<br />
+    {{ this.rank }}<br />
+    {{ this.messages[this.rank]}}<br/>
     <router-link to="/">もう１回あそぶ</router-link>
-    </div>
+  </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
-    
-}
+  data(){
+      return{
+          messages: {S:"すごい！あなたは野菜の才能があるかも？",
+                    A:"全問正解まであと少し！",
+                    B:"まだまだ頑張ろう！",
+                    C:"野菜を食べて覚えよう！",
+                    D:"全問不正解！もしかして野菜嫌い？",
+                    P:"QuizKnockのプロデューサーと気が合うかも！？"}
+      }
+  },
+  computed: {
+    ...mapState({
+      answers: "answers",
+    }),
+    rank(){
+        var correctsToRank = ["D","C","B","A","S"]
+        if (this.isP()){
+            return "P"
+        } else {
+            var corrects = this.answers.filter(function(x){return x==="1"}).length;
+            return correctsToRank[corrects]
+        }
+    }
+  },
+  methods: {
+    isP(){
+        var pAnswers = ["1","2","1","2"]
+        for (var i = 0, n = this.answers.length; i < n; ++i){
+            if (this.answers[i] !== pAnswers[i]) return false;
+        }
+        return true
+    }
+  }
+};
 </script>
