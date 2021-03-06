@@ -1,7 +1,7 @@
 <template>
   <div>
     {{ answers }}<br />
-    {{ this.rank }}<br />
+    判定：{{ this.rank }}<br />
     {{ this.messages[this.rank]}}<br/>
     <router-link to="/">もう１回あそぶ</router-link>
   </div>
@@ -42,6 +42,11 @@ export default {
         }
         return true
     }
+  },
+  created(){
+      if (this.answers.length == 0){
+          this.$router.push("/")//不正な画面遷移対策
+      }
   }
 };
 </script>

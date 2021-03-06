@@ -43,5 +43,10 @@ export default {
       }
     },
   },
+  created() {
+    if (this.$store.state.answers.length == 0) {
+      this.$router.push("/"); //不正な画面遷移対策
+    }
+  },
 };
 </script>
