@@ -49,10 +49,9 @@ span.choice img {
   border: 6px solid #ffffff;
 }
 span.choice img:hover {
-  width: 200px;
   border: 6px solid #00cc00;
 }
 span.choice img:active {
-  width: 210px;
+  opacity: 0.5;
 }
 </style>
