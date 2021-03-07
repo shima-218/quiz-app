@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     野菜クイズ<br />
-    エリンギはどれです？<br />
+    エリンギはこれです！<br />
     <router-link to="/1">
       <span @click="resetAnswer()">はじめる</span>
     </router-link>

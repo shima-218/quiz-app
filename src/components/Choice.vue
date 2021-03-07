@@ -29,21 +29,30 @@ export default {
         "https://quiz-pictures.s3-ap-northeast-1.amazonaws.com/" +
         this.choice[0]
       );
-    }
+    },
   },
-  methods:{
-      registerAnswer(){
-          this.$store.commit('addAnswer',[this.id, this.choice, this.keyword])
-      },
-      resetAnswer(){
-          this.$store.commit('resetAnswer')
-      }
-  }
+  methods: {
+    registerAnswer() {
+      this.$store.commit("addAnswer", [this.id, this.choice, this.keyword]);
+    },
+    resetAnswer() {
+      this.$store.commit("resetAnswer");
+    },
+  },
 };
 </script>
 
 <style scoped>
 span.choice img {
   width: 200px;
+  border-radius: 30px;
+  border: 6px solid #ffffff;
+}
+span.choice img:hover {
+  width: 200px;
+  border: 6px solid #00cc00;
+}
+span.choice img:active {
+  width: 210px;
 }
 </style>
