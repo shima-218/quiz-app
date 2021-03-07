@@ -1,15 +1,15 @@
 <template>
   <div>
-    <Footer :showMark="false" />
+    <Header :showMark="false" />
     <router-link to="/result"> 答え合わせ！ </router-link>
   </div>
 </template>
 
 <script>
-import Footer from "../components/Footer";
+import Header from "../components/Header";
 export default {
   components: {
-    Footer,
+    Header,
   },
   created() {
     if (this.$store.state.illegalTransition) {

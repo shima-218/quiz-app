@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Footer :showMark="false" />
+    <Header :showMark="false" />
     <p>
       {{ question }}
     </p>
@@ -14,11 +14,11 @@
 
 <script>
 import Choice from "../components/Choice";
-import Footer from "../components/Footer"
+import Header from "../components/Header"
 export default {
   components: {
     Choice,
-    Footer,
+    Header,
   },
   data() {
     return {

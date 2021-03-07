@@ -1,5 +1,5 @@
 <template>
-  <div class="footer">
+  <div class="header">
     <span v-for="(image, index) in images" :key="image.id">
       <span class="choice">
         {{keywords[index]}}
@@ -55,7 +55,7 @@ span.image {
 span.choice img {
   width: 50px;
 }
-div.footer {
+div.header {
   background-color: #CCFF66;
   height: 80px;
 }

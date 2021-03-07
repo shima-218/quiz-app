@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Footer :showMark="true" />
+    <Header :showMark="true" />
     判定：{{ this.rank }}<br />
     {{ this.messages[this.rank] }}<br />
     <a
@@ -16,10 +16,10 @@
 
 <script>
 import { mapState } from "vuex";
-import Footer from "../components/Footer";
+import Header from "../components/Header";
 export default {
   components: {
-    Footer,
+    Header,
   },
   data() {
     return {
