@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header :showMark="false" />
+    <Header/>
     <p>
       {{ question }}
     </p>

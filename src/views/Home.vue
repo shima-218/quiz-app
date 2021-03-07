@@ -1,7 +1,6 @@
 <template>
-  <div class="home">
-    野菜クイズ<br />
-    エリンギはこれです！<br />
+  <div>
+    <Header :showTitle="true"/>
     <router-link to="/1">
       <span @click="resetAnswer()">はじめる</span>
     </router-link>
@@ -9,9 +8,11 @@
 </template>
 
 <script>
+import Header from "../components/Header";
 export default {
-  name: "Home",
-  components: {},
+  components: {
+    Header
+  },
   methods: {
     resetAnswer() {
       this.$store.commit("startGame");

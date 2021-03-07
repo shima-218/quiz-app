@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header :showMark="false" />
+    <Header/>
     <router-link to="/result"> 答え合わせ！ </router-link>
   </div>
 </template>
