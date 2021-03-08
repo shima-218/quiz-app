@@ -1,10 +1,10 @@
 <template>
-  <span class="choice" v-if="id < numOfQuestions">
+  <span :class="{choice: !isMobile, choice_mb: isMobile}" v-if="id < numOfQuestions">
     <router-link :to="{ name: 'Question', params: { id: +id + 1 } }">
       <span @click="registerAnswer()"><img :src="imgPath" /></span>
     </router-link>
   </span>
-  <span class="choice" v-else>
+  <span :class="{choice: !isMobile, choice_mb: isMobile}" v-else>
     <router-link to="/confirm">
       <span @click="registerAnswer()"><img :src="imgPath" /></span>
     </router-link>
@@ -23,6 +23,7 @@ export default {
     ...mapState({
       numOfQuestions: "numOfQuestions",
       answers: "answers",
+      isMobile: "isMobile"
     }),
     imgPath() {
       return (
@@ -48,10 +49,19 @@ span.choice img {
   border-radius: 30px;
   border: 6px solid #ffffff;
 }
+span.choice_mb img{
+  width: 150px;
+  border-radius: 15px;
+  border: 3px solid #ffffff;
+}
 span.choice img:hover {
   border: 6px solid #00cc00;
 }
 span.choice img:active {
+  opacity: 0.5;
+}
+span.choice_mb img:active {
+  border: 3px solid #00cc00;
   opacity: 0.5;
 }
 </style>

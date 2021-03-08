@@ -30,7 +30,8 @@ export default createStore({
         selectedImages: [],
         answers: [],
         keywords: [],
-        illegalTransition: true
+        illegalTransition: true,
+        isMobile: false
     },
     mutations: {
         addAnswer(state, payload) {
@@ -47,6 +48,9 @@ export default createStore({
             state.answers = []
             state.keywords = []
             state.illegalTransition = false
+        },
+        setMobileFlag(state, payload) {
+            state.isMobile = payload
         }
     },
     actions: {},

@@ -13,6 +13,14 @@ export default {
   components: {
     Footer,
   },
+  created() {
+    if (
+      navigator.userAgent.indexOf("iPhone") > 0 ||
+      navigator.userAgent.indexOf("Android") > 0
+    ) {
+      this.$store.commit("setMobileFlag", true);
+    }
+  },
 };
 </script>
 
@@ -22,7 +30,7 @@ div.footer {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 100%
+  width: 100%;
 }
 
 #app {

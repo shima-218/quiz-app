@@ -2,7 +2,7 @@
   <div>
     <Header :showTitle="true"/>
     <router-link to="/1">
-      <span @click="resetAnswer()">はじめる</span>
+      <span @click="startGame()">はじめる</span>
     </router-link>
   </div>
 </template>
@@ -14,7 +14,7 @@ export default {
     Header
   },
   methods: {
-    resetAnswer() {
+    startGame() {
       this.$store.commit("startGame");
     },
   },

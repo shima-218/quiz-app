@@ -3,7 +3,7 @@
     <span v-if="showTitle"> 野菜クイズ<br/>エリンギはこれです！ </span>
     <span v-else>
       <span v-for="(image, index) in images" :key="image.id">
-        <span class="choice">
+        <span :class="{choice: !isMobile, choice_mb: isMobile}">
           {{ keywords[index] }}
           <span class="image">
             <img :src="imgPath(image)" />
@@ -40,6 +40,7 @@ export default {
       images: "selectedImages",
       answers: "answers",
       keywords: "keywords",
+      isMobile: "isMobile"
     }),
   },
   methods: {
@@ -56,6 +57,12 @@ span.choice {
   position: relative;
   width: 100px;
 }
+span.choice_mb {
+  display: inline-block;
+  position: relative;
+  width: 70px;
+  font-size: 60%;
+}
 span.image {
   position: absolute;
   top: 100%;
@@ -63,6 +70,9 @@ span.image {
   transform: translateX(-50%);
 }
 span.choice img {
+  width: 50px;
+}
+span.choice_mb img {
   width: 50px;
 }
 div.header {
