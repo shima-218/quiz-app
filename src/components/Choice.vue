@@ -61,7 +61,7 @@ span.choice img:active {
   opacity: 0.5;
 }
 span.choice_mb img:active {
-  border: 3px solid #00cc00;
+  border: 3px solid #ffffff;
   opacity: 0.5;
 }
 </style>

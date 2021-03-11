@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <span v-if="showTitle"> 野菜クイズ<br/>エリンギはこれです！ </span>
+    <span v-if="showTitle" class="title"> 野菜クイズ </span>
     <span v-else>
       <span v-for="(image, index) in images" :key="image.id">
         <span :class="{choice: !isMobile, choice_mb: isMobile}">
@@ -78,5 +78,19 @@ span.choice_mb img {
 div.header {
   background-color: #ccff66;
   height: 80px;
+  position: relative;
+}
+
+span.title {
+  font-size: 250%;
+  font-weight: bold;
+  border: double 6px #009933;
+  padding: 0.05em 0.6em;
+  border-radius: 0.5em;
+  background: #f1ff33;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  white-space: nowrap;
 }
 </style>

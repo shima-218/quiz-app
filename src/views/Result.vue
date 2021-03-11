@@ -1,16 +1,20 @@
 <template>
   <div>
     <Header :showMark="true" />
-    判定：{{ this.rank }}<br />
-    {{ this.messages[this.rank] }}<br />
+    <p :class="{result: !isP(), result_p: isP()}">判定：{{ rank }}</p>
+    <p class="message">{{ messages[rank] }}</p>
+    <span><img src="../assets/result_s.png" /></span>
+    <span class="twitter">結果をツイート！</span>
     <a
       href="https://www.youtube.com/watch?v=5LBYNrZ-Gug"
       target="_blank"
       rel="noopener noreferrer"
     >
-      答えはこちらの動画で確認！
-    </a><br/>
-    <router-link to="/">もう１回あそぶ</router-link>
+      <span class="youtube">答えはこちらの動画で確認！</span> </a
+    ><br />
+    <router-link to="/">
+      <span class="retry">もう１回あそぶ</span>
+    </router-link>
   </div>
 </template>
 
@@ -24,12 +28,12 @@ export default {
   data() {
     return {
       messages: {
-        S: "すごい！あなたは野菜の才能があるかも？",
+        S: "すごい！野菜の才能があるかも？",
         A: "全問正解まであと少し！",
         B: "まだまだ頑張ろう！",
         C: "野菜を食べて覚えよう！",
         D: "全問不正解！もしかして野菜嫌い？",
-        P: "QuizKnockのプロデューサーと気が合うかも！？",
+        P: "QuizKnockのプロデューサーかも！？",
       },
     };
   },
@@ -65,3 +69,86 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+div {
+  position: relative;
+}
+
+p.result {
+  font-size: 200%;
+  font-weight: bold;
+}
+
+p.result_p {
+  font-size: 200%;
+  font-weight: bold;
+  color: #FF66CC;
+}
+
+p.message {
+  font-size: 120%;
+}
+
+span img {
+  width: 300px;
+}
+
+span.retry {
+  font-size: 150%;
+  font-weight: bold;
+  position: absolute;
+  top: 300%;
+  transform: translateX(-50%);
+  padding: 1rem 2rem;
+  color: #fff;
+  background: #094;
+  -webkit-box-shadow: 0 5px 0 #007032;
+  white-space: nowrap;
+}
+span.retry:active {
+  position: absolute;
+  top: 300%;
+  transform: translate(-50%, 5px);
+  -webkit-box-shadow: 5px 5px 0 #ffffff;
+}
+
+span.youtube {
+  font-size: 150%;
+  font-weight: bold;
+  position: absolute;
+  top: 200%;
+  transform: translateX(-50%);
+  padding: 1rem 1rem;
+  color: #fff;
+  background: #c52929;
+  -webkit-box-shadow: 0 5px 0 #a41614;
+  white-space: nowrap;
+}
+span.youtube:active {
+  position: absolute;
+  top: 200%;
+  transform: translate(-50%, 5px);
+  -webkit-box-shadow: 5px 5px 0 #ffffff;
+}
+
+span.twitter {
+  font-size: 150%;
+  font-weight: bold;
+  position: absolute;
+  top: 100%;
+  transform: translateX(-50%);
+  padding: 1rem 1rem;
+  color: #fff;
+  background: #55acee;
+  -webkit-box-shadow: 0 5px 0 #1c91e8;
+  white-space: nowrap;
+}
+span.twitter:active {
+  position: absolute;
+  top: 100%;
+  transform: translate(-50%, 5px);
+  -webkit-box-shadow: 5px 5px 0 #ffffff;
+}
+
+</style>
