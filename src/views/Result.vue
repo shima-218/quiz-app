@@ -122,12 +122,14 @@ span.retry {
   padding: 0.5rem 2rem;
   color: #fff;
   background: #094;
+  box-shadow:  0 5px 0 #007032;
   -webkit-box-shadow: 0 5px 0 #007032;
   white-space: nowrap;
 }
 span.retry:active {
   position: absolute;
   transform: translate(-50%, 5px);
+  box-shadow: 5px 5px 0 #ffffff;
   -webkit-box-shadow: 5px 5px 0 #ffffff;
 }
 
@@ -139,12 +141,14 @@ span.youtube {
   padding: 0.5rem 1rem;
   color: #fff;
   background: #c52929;
+  box-shadow: 0 5px 0 #a41614;
   -webkit-box-shadow: 0 5px 0 #a41614;
   white-space: nowrap;
 }
 span.youtube:active {
   position: absolute;
   transform: translate(-50%, 5px);
+  box-shadow: 5px 5px 0 #ffffff;
   -webkit-box-shadow: 5px 5px 0 #ffffff;
 }
 
@@ -156,12 +160,14 @@ span.twitter {
   padding: 0.5rem 1rem;
   color: #fff;
   background: #55acee;
+  box-shadow: 0 5px 0 #1c91e8;
   -webkit-box-shadow: 0 5px 0 #1c91e8;
   white-space: nowrap;
 }
 span.twitter:active {
   position: absolute;
   transform: translate(-50%, 5px);
+  box-shadow: 5px 5px 0 #ffffff;
   -webkit-box-shadow: 5px 5px 0 #ffffff;
 }
 </style>
