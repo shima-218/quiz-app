@@ -1,10 +1,12 @@
 <template>
   <div>
     <Header :showMark="true" />
-    <p :class="{result: !isP(), result_p: isP()}">判定：{{ rank }}</p>
+    <p :class="{ result: !isP(), result_p: isP() }">判定：{{ rank }}</p>
     <p class="message">{{ messages[rank] }}</p>
-    <span><img :src="images[rank]" /></span><br/>
-    <span class="twitter">結果をツイート！</span><br /><br /><br />
+    <span><img :src="images[rank]" /></span><br />
+    <a :href="twitterUrl" target="_blank" rel="noopener noreferrer">
+      <span class="twitter">結果をツイート！</span></a
+    ><br /><br /><br />
     <a
       href="https://www.youtube.com/watch?v=5LBYNrZ-Gug"
       target="_blank"
@@ -12,10 +14,9 @@
     >
       <span class="youtube">答えはこちらの動画で確認！</span> </a
     ><br /><br /><br />
-    <router-link to="/">
-      <span class="retry">もう１回あそぶ</span>
-    </router-link><br/>
-    <br/><br/><br/><br/>
+    <router-link to="/"> <span class="retry">もう１回あそぶ</span> </router-link
+    ><br />
+    <br /><br /><br /><br />
   </div>
 </template>
 
@@ -42,8 +43,8 @@ export default {
         B: require("../assets/result_b.png").default,
         C: require("../assets/result_c.png").default,
         D: require("../assets/result_d.png").default,
-        P: require("../assets/result_p.png").default
-      }
+        P: require("../assets/result_p.png").default,
+      },
     };
   },
   computed: {
@@ -60,6 +61,16 @@ export default {
         }).length;
         return correctsToRank[corrects];
       }
+    },
+    twitterUrl() {
+      var url = encodeURIComponent(location.href);
+      return (
+        "https://twitter.com/intent/tweet?url=" +
+        url +
+        "&text=" +
+        this.messages[this.rank] +
+        "&hashtags=野菜クイズ"
+      );
     },
   },
   methods: {
@@ -92,7 +103,7 @@ p.result {
 p.result_p {
   font-size: 200%;
   font-weight: bold;
-  color: #FF66CC;
+  color: #ff66cc;
 }
 
 p.message {
@@ -153,5 +164,4 @@ span.twitter:active {
   transform: translate(-50%, 5px);
   -webkit-box-shadow: 5px 5px 0 #ffffff;
 }
-
 </style>
