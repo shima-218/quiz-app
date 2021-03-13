@@ -1,20 +1,22 @@
 <template>
   <div>
-    <Header/>
+    <Header />
     <p>
       {{ question }}
     </p>
-    <p>
-      <span v-for="choice in choices" :key="choice.id">
-        <Choice :choice="choice" :keyword="keyword" :id="id" />
-      </span>
-    </p>
+    <transition name="fade">
+      <p :key="id">
+        <span v-for="choice in choices" :key="choice.id">
+          <Choice :choice="choice" :keyword="keyword" :id="id" />
+        </span>
+      </p>
+    </transition>
   </div>
 </template>
 
 <script>
 import Choice from "../components/Choice";
-import Header from "../components/Header"
+import Header from "../components/Header";
 export default {
   components: {
     Choice,
@@ -57,5 +59,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>

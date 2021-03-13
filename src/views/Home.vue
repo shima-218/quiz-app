@@ -41,7 +41,7 @@ span.start{
   color: #fff;
   background: #094;
   -webkit-box-shadow: 0 5px 0 #007032;
-  white-space: nowrap;
+  white-space: nowrap;/* 文を折り返さない*/
 }
 span.start:active{
   position: absolute;

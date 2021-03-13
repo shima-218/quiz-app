@@ -1,6 +1,8 @@
 <template>
   <div>
+    <transition name="fade">
     <router-view />
+    </transition>
     <div class="footer">
       <Footer />
     </div>
@@ -53,4 +55,18 @@ div.footer {
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
+.fade-enter-active{
+  transition: opacity 1s ease;
+}
+
+.fade-enter-from{
+  opacity: 0;
+}
+
+/* スマホタップ時に青色を表示しない */
+a {
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+
 </style>
