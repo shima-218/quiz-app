@@ -3,7 +3,12 @@
     <Header :showTitle="true"/>
     <router-link to="/1">
       <span class="start" @click="startGame()">はじめる</span>
-    </router-link>
+    </router-link><br/>
+    <span class="warning">
+    このアプリはQuizKnockが好きな<br/>
+    QuizKnockとは何の関係もない<br/>
+    一個人が作成したアプリです。
+    </span>
   </div>
 </template>
 
@@ -43,5 +48,11 @@ span.start:active{
   top: 300%;
   transform: translate(-50%,5px);
   -webkit-box-shadow: 5px 5px 0 #ffffff;
+}
+span.warning{
+  position: fixed;
+  transform: translateX(-50%);
+  bottom: 10%;
+  white-space: nowrap;
 }
 </style>
