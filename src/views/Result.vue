@@ -66,7 +66,7 @@ export default {
       var url = encodeURIComponent(location.href);
       return (
         "https://twitter.com/intent/tweet?url=" +
-        url +
+        url.substr(0,url.length-6) +
         "&text=" +
         this.messages[this.rank] +
         "&hashtags=野菜クイズ"
