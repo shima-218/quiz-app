@@ -3,7 +3,7 @@
     <Header :showMark="true" />
     <p :class="{result: !isP(), result_p: isP()}">判定：{{ rank }}</p>
     <p class="message">{{ messages[rank] }}</p>
-    <span><img src="../assets/result_s.png" /></span>
+    <span><img :src="images[rank]" /></span>
     <span class="twitter">結果をツイート！</span>
     <a
       href="https://www.youtube.com/watch?v=5LBYNrZ-Gug"
@@ -35,6 +35,14 @@ export default {
         D: "全問不正解！もしかして野菜嫌い？",
         P: "QuizKnockのプロデューサーかも！？",
       },
+      images: {
+        S: require("../assets/result_s.png").default,
+        A: require("../assets/result_a.png").default,
+        B: require("../assets/result_b.png").default,
+        C: require("../assets/result_c.png").default,
+        D: require("../assets/result_d.png").default,
+        P: require("../assets/result_p.png").default
+      }
     };
   },
   computed: {
