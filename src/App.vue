@@ -56,12 +56,32 @@ div.footer {
   color: #42b983;
 }
 
-.fade-enter-active{
-  transition: opacity 1s ease;
+.fade-enter-active,
+.fade-leave-active{
+  transition: opacity 0.5s ease;
 }
 
-.fade-enter-from{
+.fade-enter-from,
+.fade-leave-to{
   opacity: 0;
+}
+
+.bounceHint-enter-active {
+  animation: bounceHint-in 0.5s;
+}
+.bounceHint-leave-active {
+  animation: bounceHint-in 0.5s reverse;
+}
+@keyframes bounceHint-in {
+  0% {
+    transform: translateX(-50%) scale(0);
+  }
+  50% {
+    transform: translateX(-50%) scale(1.5);
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+  }
 }
 
 /* スマホタップ時に青色を表示しない */

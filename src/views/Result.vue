@@ -34,7 +34,7 @@ export default {
         A: "全問正解まであと少し！",
         B: "まだまだ頑張ろう！",
         C: "野菜を食べて覚えよう！",
-        D: "全問不正解！もしかして野菜嫌い？",
+        D: "＼分かるだろ野菜〜！／",
         P: "QuizKnockのプロデューサーかも！？",
       },
       images: {
@@ -68,6 +68,7 @@ export default {
         "https://twitter.com/intent/tweet?url=" +
         url.substr(0,url.length-6) +
         "&text=" +
+        "判定：" + this.rank + " " +
         this.messages[this.rank] +
         "&hashtags=野菜クイズ"
       );
