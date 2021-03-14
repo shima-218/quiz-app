@@ -12,7 +12,7 @@
     >
     <transition name="fade" mode="out-in">
       <p :key="id">
-        <span v-for="choice in choices" :key="choice.id">
+        <span v-for="choice in choices" :key="choice.id" @click="showHint=false">
           <Choice :choice="choice" :keyword="keyword" :id="id" />
         </span>
       </p>

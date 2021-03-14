@@ -75,12 +75,15 @@ div.footer {
 @keyframes bounceHint-in {
   0% {
     transform: translateX(-50%) scale(0);
+    color: rgba(0,0,0,0);/* アニメーション時に文字を消す */
   }
   50% {
     transform: translateX(-50%) scale(1.5);
+    color: rgba(0,0,0,0);
   }
   100% {
     transform: translateX(-50%) scale(1);
+    color: rgba(0,0,0,0);
   }
 }
 
