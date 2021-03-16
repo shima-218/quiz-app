@@ -4,21 +4,27 @@
     <p>
       {{ question }}
     </p>
-    <button :class="{ hintOn: showHint, hintOff: !showHint }" @click="showHint = !showHint">
-      {{ showHint ? "ヒントを隠す" : "ヒントを見る" }}
-    </button><br /><br />
+    <button
+      :class="{ hintOn: showHint, hintOff: !showHint }"
+      @click="showHint = !showHint"
+    >
+      {{ showHint ? "ヒントを隠す" : "ヒントを見る" }}</button
+    ><br /><br />
     <transition name="bounceHint"
       ><span class="hint" v-if="showHint">{{ hint }}</span></transition
     >
     <transition name="fade" mode="out-in">
       <p :key="id">
-        <span v-for="choice in choices" :key="choice.id" @click="showHint=false">
+        <span
+          v-for="choice in choices"
+          :key="choice.id"
+          @click="showHint = false"
+        >
           <Choice :choice="choice" :keyword="keyword" :id="id" />
         </span>
       </p>
     </transition>
-    <p>
-    </p>
+    <p></p>
   </div>
 </template>
 
@@ -36,6 +42,7 @@ export default {
       keyword: "",
       choices: "",
       hint: "",
+      hoge: "",
       showHint: false,
     };
   },
@@ -59,6 +66,11 @@ export default {
         this.choices = object[2];
         this.hint = object[3];
       }
+      var vm = this;
+      this.$axios.get(
+        "https://nw531kuxm5.execute-api.ap-northeast-1.amazonaws.com/prod/readQuiz?id=" +
+          this.$route.params.id
+      ).then( (response) => {vm.hoge = response.data});
     },
   },
   created() {
@@ -96,5 +108,4 @@ span.hint {
   border: none;
   outline: none; /* クリックしたときの青枠線を消す */
 }
-
 </style>
