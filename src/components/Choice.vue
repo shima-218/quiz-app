@@ -30,7 +30,7 @@ export default {
     }),
     imgPath() {
       return (
-        "https://quiz-pictures.s3-ap-northeast-1.amazonaws.com/" +
+        process.env.VUE_APP_PICTURE_URL +
         this.choice[0]
       );
     },

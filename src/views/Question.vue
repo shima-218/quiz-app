@@ -62,7 +62,7 @@ export default {
       if (this.$route.params.id != null) {
         this.$axios
           .get(
-            "https://nw531kuxm5.execute-api.ap-northeast-1.amazonaws.com/prod/readQuiz?id=" +
+            process.env.VUE_APP_API_URL +
               this.$route.params.id
           )
           .then((response) => {
