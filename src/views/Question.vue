@@ -40,9 +40,8 @@ export default {
     return {
       question: "",
       keyword: "",
-      choices: "",
+      choices: [],
       hint: "",
-      hoge: "",
       showHint: false,
     };
   },
@@ -59,18 +58,36 @@ export default {
   },
   methods: {
     readQuestion() {
-      var object = this.$store.state.questions[this.$route.params.id - 1];
-      if (object != null) {
-        this.question = object[0];
-        this.keyword = object[1];
-        this.choices = object[2];
-        this.hint = object[3];
-      }
       var vm = this;
-      this.$axios.get(
-        "https://nw531kuxm5.execute-api.ap-northeast-1.amazonaws.com/prod/readQuiz?id=" +
-          this.$route.params.id
-      ).then( (response) => {vm.hoge = response.data});
+      if (this.$route.params.id != null) {
+        this.$axios
+          .get(
+            "https://nw531kuxm5.execute-api.ap-northeast-1.amazonaws.com/prod/readQuiz?id=" +
+              this.$route.params.id
+          )
+          .then((response) => {
+            vm.question = response.data.question;
+            vm.keyword = response.data.keyword;
+            for (
+              var i = 0, n = Object.keys(response.data.choices).length;
+              i < n;
+              ++i
+            ) {
+              vm.choices[i] = [
+                response.data.choices[i + 1].picture,
+                response.data.choices[i + 1].answer,
+              ];
+            }
+            vm.hint = response.data.hint;
+          });
+      }
+      /*var object = this.$store.state.questions[this.$route.params.id - 1];
+        if (object != null) {
+          this.question = object[0];
+          this.keyword = object[1];
+          this.choices = object[2];
+          this.hint = object[3];
+        }*/ //スタブ用
     },
   },
   created() {

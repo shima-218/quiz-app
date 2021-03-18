@@ -2,7 +2,7 @@ import { createStore } from 'vuex'
 
 export default createStore({
     state: {
-        questions: [
+        /*questions: [
             ["キャベツはどっち？", "キャベツ", [
                 ["001_01.png", "1"],
                 ["001_02.png", "0"]
@@ -25,7 +25,7 @@ export default createStore({
                 ["004_04.png", "0"],
                 ["004_05.png", "0"]
             ], "最後のやつマッシュルームかも"]
-        ],
+        ],*/ //スタブ用
         numOfQuestions: 4,
         selectedImages: [],
         answers: [],
