@@ -68,6 +68,7 @@ export default {
           .then((response) => {
             vm.question = response.data.question;
             vm.keyword = response.data.keyword;
+            vm.choices = [];
             for (
               var i = 0, n = Object.keys(response.data.choices).length;
               i < n;

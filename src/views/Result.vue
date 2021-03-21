@@ -4,15 +4,15 @@
     <p :class="{ result: !isP(), result_p: isP() }">判定：{{ rank }}</p>
     <p class="message">{{ messages[rank] }}</p>
     <span><img :src="images[rank]" /></span><br />
-    <a :href="twitterUrl" target="_blank" rel="noopener noreferrer">
-      <span class="twitter">結果をツイート！</span></a
-    ><br /><br /><br />
     <a
       href="https://www.youtube.com/watch?v=5LBYNrZ-Gug"
       target="_blank"
       rel="noopener noreferrer"
     >
       <span class="youtube">答えはこちらの動画で確認！</span> </a
+    ><br /><br /><br />
+    <a :href="twitterUrl" target="_blank" rel="noopener noreferrer">
+      <span class="twitter">結果をツイート！</span></a
     ><br /><br /><br />
     <router-link to="/"> <span class="retry">もう１回あそぶ</span> </router-link
     ><br />
